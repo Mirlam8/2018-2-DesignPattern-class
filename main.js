@@ -132,8 +132,7 @@ app.post('/update', function(request, response){
         var post = qs.parse(body);
         var musicId = post.selected_music;
         var yearId = post.year_of_dir;
-        // 기존 파일을 읽어서 정보를 가져온다
-        // 수정필요 : 수정시 발매일도 바뀌어야함.. 
+        // 기존 파일을 읽어서 정보를 가져온
         fs.readdir('data/music', function(error, filelist){
           fs.readFile(`./data/music/${yearId}/${musicId}`, function(error, datas){
             var title = "Update Lyric";
