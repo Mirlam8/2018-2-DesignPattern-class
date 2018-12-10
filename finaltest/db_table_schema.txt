@@ -1,0 +1,34 @@
+CREATE TABLE m_data(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    m_title VARCHAR(100) NOT NULL,
+    m_artist INT(11) NOT NULL,
+    m_update DATETIME NOT NULL,
+    m_release YEAR NOT NULL,
+    m_monthday char(5),
+    m_url VARCHAR(512) NOT NULL,
+    m_lyric TEXT NOT NULL,
+    publisher_id VARCHAR(16) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE `listbase` (
+ `id` int(11) NOT NULL,
+ `listname` varchar(16) NOT NULL,
+ `list_condition` varchar(50) NOT NULL,
+ PRIMARY KEY (`id`)
+);
+
+INSERT INTO listbase VALUES 
+('1', '1970s_Before', 'm_release < 1980'),
+('2', '1980s', 'm_release >= 1980 AND m_release < 1990'),
+('3', '1990s', 'm_release >= 1990 AND m_release < 2000'),
+('4', '2000~05', 'm_release >= 2000 AND m_release < 2006'),
+('5', '2006~10', 'm_release >= 2006 AND m_release < 2011'),
+('6', '2011~15', 'm_release >= 2011 AND m_release < 2016'),
+('7', '2016~New', 'm_release >= 2016');
+
+CREATE TABLE `user`(`user_id` varchar(16) NOT NULL,
+`user_pwd` varchar(16) NOT NULL,
+`nickname` varchar(16) NOT NULL,
+PRIMARY KEY (user_id)
+);

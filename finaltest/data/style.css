@@ -276,3 +276,48 @@ tbody th a:hover{
   background: #ff3434;
   border-color: #ff3434;
 }
+#login_UI{
+  background-color: #daffdc;
+}
+#logout_UI{
+  background-color: #ffcfcf;
+}
+#status{
+  float: right;
+  border: 1px solid #49495d;
+  padding: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#adduser_button{
+  text-align:center; 
+  margin-top: 5px; 
+  padding: 5px;
+  border: 2px solid #ffb752;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #49495d;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+}
+#adduser_button:hover{
+  color: #ffffff;
+  background: #ffb752;
+}
+#login_button{
+  text-align:center; 
+  margin-top: 5px; 
+  padding: 5px;
+  border: 2px solid #2ae300;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #49495d;
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+}
+#login_button:hover{
+  color: #ffffff;
+  background: #2ae300;
+}

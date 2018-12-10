@@ -4,9 +4,19 @@ const app = express()
 app.use('/static', express.static(__dirname + '/data'));
 // 모듈 
 var helmet = require('helmet');
+var db = require('./data/lib/db.js');
 var mlyric = require('./data/lib/mlyric.js');
 app.use(helmet());
-
+var session = require('express-session');
+var Filestore = require('session-file-store')(session);
+// 세션 생성
+app.use(session({
+  secret: 'afsdfasdg12',
+  resave: false,
+  saveUninitialized: true,
+  store: new Filestore()
+}));
+// 메인 화면
 app.get('/', function(request, response) {mlyric.home(request, response);});
 
 // 메뉴 페이지
@@ -35,6 +45,12 @@ app.get('/search', function(request, response){mlyric.search_page(request, respo
 
 // 로그인 페이지
 app.get('/login', function(request, response){mlyric.login_page(request, response);});
+app.post('/login_process', function(request, response){mlyric.login_process(request, response);});
+app.get('/logout', function(request, response){mlyric.logout_page(request, response);});
+
+// 사용자 추가 페이지
+app.get('/adduser', function(request, response){mlyric.adduser_page(request, response);});
+app.post('/adduser_process', function(request,response){mlyric.adduser_process(request, response);});
 
 app.listen(4000, function() { 
   console.log('Example app listening on port 4000!')

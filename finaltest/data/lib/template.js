@@ -1,5 +1,6 @@
+var UI = require('./login.js')
 module.exports = {
-  HTML:function(title, list, body){
+  HTML:function(title, list, body, user_UI='<div id="staus"><a href="/login" id="login_UI">Login</a></div>'){
     return `
     <!doctype html>
     <html>
@@ -20,7 +21,7 @@ module.exports = {
           </div>
             <div id="blanck">
             <p>
-              <a href="/login" id="user">Login</a>
+              ${user_UI}
             </div>
             <div class="container">
               <nav id="menu">
@@ -58,6 +59,7 @@ module.exports = {
       <tr>
         <th>No</th>
         <th>곡이름 (아티스트)</th>
+        <th>작성자</th>
       <tr>
     </thead>
     <tbody>`
@@ -67,6 +69,7 @@ module.exports = {
       <tr>
         <th>${i+1}</th>
         <th><a href="/music/${musiclist[i].m_id}" id="m_listlink">${musiclist[i].m_title} (${musiclist[i].m_artist})</a></th>
+        <th>${musiclist[i].publisher_id}</th>
       </tr>`;
       i = i + 1;
     } 
